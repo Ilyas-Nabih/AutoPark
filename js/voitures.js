@@ -97,7 +97,7 @@ function afficherTableVoiture() {
         //modification
         editBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            document.getElementById("annuler-modification").hidden = false
+            
             carModifie(voiture.id);
         })
 
@@ -164,12 +164,14 @@ function carModifie(id) {
     price.value = found.prixJour
     status.value = found.statut
     button.textContent = "confirmer la modification"
+    document.getElementById("annuler-modification").hidden = false
 
     //annulation de modification
     document.getElementById("annuler-modification").addEventListener("click", () => {
         formulaire.reset();
         idchecker = 0
         button.textContent = "Ajouter la voiture"
+        document.getElementById("annuler-modification").hidden = true
     })
     
 }
