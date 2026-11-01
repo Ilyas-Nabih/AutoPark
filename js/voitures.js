@@ -81,6 +81,16 @@ function afficherTableVoiture() {
         div.appendChild(deleteBtn);
         div.appendChild(editBtn);
 
+        //suppression
+         deleteBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (confirm("Voulez-vous vraiment supprimer cette voiture?")) {
+                voitures = voitures.filter(item => item.id != voiture.id)
+            }
+            afficherTableVoiture();
+        });
+
+
     })
 }
 
