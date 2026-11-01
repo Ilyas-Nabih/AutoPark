@@ -1,4 +1,5 @@
-import { voituresInitiales } from './data.js'
+import { voituresInitiales } from './data.js';
+
 let voitures = [...voituresInitiales]
 const listeVoitures = document.getElementById("liste-voitures");
 
@@ -11,10 +12,6 @@ const status = document.getElementById("statut");
 const button = document.getElementById('bouton-enregistrer')
 const formulaire = document.getElementById("formulaire-voiture")
 
-//variables ajoutees pour partie modification
-let idchecker = 0
-let found;
-const cancelBtn = document.getElementById("annuler-modification")
 //fonction afficher
 function afficherTableVoiture() {
     listeVoitures.replaceChildren()
@@ -85,94 +82,8 @@ function afficherTableVoiture() {
         div.appendChild(deleteBtn);
         div.appendChild(editBtn);
 
-        //suppression
-         deleteBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            if (confirm("Voulez-vous vraiment supprimer cette voiture?")) {
-                voitures = voitures.filter(item => item.id != voiture.id)
-            }
-            afficherTableVoiture();
-        });
-        
-        //modification
-        editBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            
-            carModifie(voiture.id);
-        })
-
-
-
     })
 }
 
 afficherTableVoiture()
-
-//fonction ajouter
-function ajouter(event) {
-    event.preventDefault();
-
-    console.log(brand, model);
-    let validation = true
-
-    if (brand.value.trim() === "" || !(model.value.trim()) || !(registration.value.trim()) || !(category.value.trim()) || !(price.value) || !(status.value.trim())) {
-        validation = false
-    }
-    if (validation === false) {
-        alert("Vous devez remplire tout les champs!")
-        return;
-    }
-//condition si idchecker = 0 il fait l'ajout s'il est diff a 0 il va modifie
-    if (idchecker === 0) {
-        voitures.push({
-            "id": voitures.length + 1,
-            "marque": brand.value.trim(),
-            "modele": model.value.trim(),
-            "immatriculation": registration.value.trim(),
-            "categorie": category.value.trim(),
-            "prixJour": price.value.trim(),
-            "statut": status.value.trim()
-        });
-    }
-
-    else if (idchecker !== 0) {
-        found.marque = brand.value
-        found.modele = model.value
-        found.immatriculation = registration.value
-        found.categorie = category.value
-        found.prixJour = price.value
-        found.statut = status.value
-        idchecker = 0
-        button.textContent = "Ajouter la voiture"
-    }
-
-    afficherTableVoiture();
-    formulaire.reset();
-
-    }
-
-formulaire.addEventListener('submit', ajouter)
-
-//Modification: seulement passer les infos dans les inputs fields
-function carModifie(id) {
-    idchecker = id
-    found = voitures.find(item => item.id === id);
-    brand.value = found.marque;
-    model.value = found.modele;
-    registration.value = found.immatriculation;
-    category.value = found.categorie
-    price.value = found.prixJour
-    status.value = found.statut
-    button.textContent = "confirmer la modification"
-    document.getElementById("annuler-modification").hidden = false
-
-    //annulation de modification
-    document.getElementById("annuler-modification").addEventListener("click", () => {
-        formulaire.reset();
-        idchecker = 0
-        button.textContent = "Ajouter la voiture"
-        document.getElementById("annuler-modification").hidden = true
-    })
-    
-}
 
