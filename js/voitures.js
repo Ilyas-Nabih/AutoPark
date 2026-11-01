@@ -1,5 +1,4 @@
-import { voituresInitiales } from './data.js';
-
+import { voituresInitiales } from './data.js'
 let voitures = [...voituresInitiales]
 const listeVoitures = document.getElementById("liste-voitures");
 
@@ -87,3 +86,33 @@ function afficherTableVoiture() {
 
 afficherTableVoiture()
 
+//fonction ajouter
+function ajouter(event) {
+    event.preventDefault();
+
+    console.log(brand, model);
+    let validation = true
+
+    if (brand.value.trim() === "" || !(model.value.trim()) || !(registration.value.trim()) || !(category.value.trim()) || !(price.value) || !(status.value.trim())) {
+        validation = false
+    }
+    if (validation === false) {
+        alert("Vous devez remplire tout les champs!")
+        return;
+    }
+
+     voitures.push({
+            "id": voitures.length + 1,
+            "marque": brand.value.trim(),
+            "modele": model.value.trim(),
+            "immatriculation": registration.value.trim(),
+            "categorie": category.value.trim(),
+            "prixJour": price.value.trim(),
+            "statut": status.value.trim()
+        });
+    afficherTableVoiture();
+    formulaire.reset();
+
+    }
+
+formulaire.addEventListener('submit', ajouter)
