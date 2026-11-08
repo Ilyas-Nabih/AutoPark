@@ -21,7 +21,7 @@ L'application fonctionne **uniquement dans le navigateur**, sans backend.
 
 ## Aperçu
 
-> Ajoutez ici une capture d'écran de la page (desktop et mobile).
+![alt text](image.png)
 
 ![Aperçu desktop](docs/apercu-desktop.png)
 ![Aperçu mobile](docs/apercu-mobile.png)
@@ -37,23 +37,11 @@ L'application fonctionne **uniquement dans le navigateur**, sans backend.
 - Le premier véhicule disponible est présélectionné.
 - Un véhicule non disponible est grisé et ne peut pas être sélectionné.
 
-### Période de location
-- Choix d'une **date de début** et d'une **date de fin**.
-- Les dates par défaut sont calculées automatiquement à partir du jour courant.
-- La date de début ne peut pas être dans le passé.
-- La date de fin ne peut pas être antérieure à la date de début.
-- Le **nombre de jours est recalculé automatiquement** : les dates de début et de fin sont incluses (du 10 au 12 = 3 jours, une seule date = 1 jour).
-
 ### Carte « Votre location »
 - Un récapitulatif à droite du formulaire se met à jour **en temps réel** à chaque changement de véhicule ou de dates :
-  - nom, catégorie et tarif du véhicule ;
-  - période de location (« 10 → 12 novembre 2026 ») ;
-  - durée en jours ;
-  - détail du calcul (`jours × tarif journalier`) ;
-  - **total estimé**.
+
 
 ### Validation et boutons
-- Message d'erreur affiché près des champs concernés si aucun véhicule n'est sélectionné ou si les dates sont invalides.
 - Bouton **Recommencer** : remet le formulaire et la carte récapitulative à leur état initial.
 - Indicateur de progression (stepper) en haut de la page, avec l'étape active mise en évidence.
 
@@ -71,7 +59,7 @@ L'application fonctionne **uniquement dans le navigateur**, sans backend.
 |---|---|
 | **HTML5** | Structure sémantique de la page |
 | **CSS3** | Mise en page (Grid, Flexbox), sélecteur `:has()`, media queries, design responsive |
-| **JavaScript (Vanilla)** | Manipulation du DOM, `addEventListener`, calculs de dates et de prix, `Intl` pour le format des dates et des montants |
+| **JavaScript (Vanilla)** | Manipulation du DOM, `addEventListener`, calculs de prix, `Intl` pour le format des montants |
 
 ---
 
@@ -118,21 +106,12 @@ Le fichier `js/location.js` regroupe des fonctions courtes, chacune avec un rôl
 |---|---|
 | `carSelect(conf)` | Crée les cartes des véhicules (radio, label, badge, prix) et les ajoute dans la grille |
 
-**Calcul du prix**
-
-```
-Total estimé = nombre de jours × tarif journalier du véhicule
-```
-
-Le total est recalculé à chaque changement de véhicule ou de date.
-
----
 
 ## Organisation du travail
 
 Les tâches du projet ont été planifiées et suivies dans **Jira**.
+![alt text](image-1.png)
 
----
 
 ## Auteur
 
