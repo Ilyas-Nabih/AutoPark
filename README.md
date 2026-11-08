@@ -23,8 +23,6 @@ L'application fonctionne **uniquement dans le navigateur**, sans backend.
 
 ![alt text](image.png)
 
-![Aperçu desktop](docs/apercu-desktop.png)
-![Aperçu mobile](docs/apercu-mobile.png)
 
 ---
 
