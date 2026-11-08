@@ -117,12 +117,6 @@ Le fichier `js/location.js` regroupe des fonctions courtes, chacune avec un rôl
 | Fonction | Rôle |
 |---|---|
 | `carSelect(conf)` | Crée les cartes des véhicules (radio, label, badge, prix) et les ajoute dans la grille |
-| `setDefaultDates()` | Définit les dates par défaut et la date minimale à partir du jour courant |
-| `updateDuration()` | Corrige la date de fin si besoin, calcule le nombre de jours et met à jour le bandeau de durée |
-| `countDays(debut, fin)` | Retourne le nombre de jours, début et fin inclus |
-| `formatPeriode(debut, fin)` | Formate la période en français (« 10 → 12 novembre 2026 ») |
-| `updateSummary()` | Met à jour la carte « Votre location » : véhicule, période, détail et total |
-| `handleSubmit(event)` | Valide le formulaire à l'envoi et affiche les messages d'erreur |
 
 **Calcul du prix**
 
