@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location</title>
+  <link rel="stylesheet" href="css/style2.css">
+  <script src="js/location.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="voitures.html" aria-label="AutoPark — Gestion du parc">
+        <span class="brand-mark" aria-hidden="true">A<span>.</span></span>
+        <span>AutoPark<small>ATLAS AUTO</small></span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <a href="index.html">Dashboard</a>
+        <a href="voitures.html">Gestion du parc</a>
+        <a href="location.html" aria-current="page">Location</a>
+      </nav>
+      <span class="agency-label">Agence de location</span>
+    </div>
+  </header>
+
+  <main id="contenu" class="container main-content">
+    <section class="page-intro" aria-labelledby="titre-page">
+      <p class="eyebrow">VOTRE LOCATION SUR MESURE</p>
+      <h1 id="titre-page">Composez votre location</h1>
+      <p>Votre voiture, vos dates, vos options. À vous de choisir.</p>
+    </section>
+
+    <section aria-label="Progression">
+      <ol class="progress">
+        <li aria-current="step"><span class="balls num1">1</span><span class="texts text1">Véhicule</span></li>
+        <li><span class="balls num2">2</span><span class="texts text2">Récupération</span></li>
+        <li><span class="balls num3">3</span><span class="texts text3">Options</span></li>
+        <li><span class="balls num4">4</span><span class="texts text4">Récapitulatif</span></li>
+      </ol>
+    </section>
+
+    <div class="layout">
+    <section class="vehicule">
+      <div class="veh-header">
+        <span class="veh-tit">01 / VÉHICULE</span>
+        <h2>Choisissez votre véhicule</h2>
+        <p>Sélectionnez une voiture disponible et votre période de location.</p>
+      </div>
+
+      <form id="form-location" novalidate>
+        <!-- Cartes générées par js/location.js -->
+        <div id="voitures" class="voitures" role="radiogroup" aria-label="Véhicules"></div>
+        <p id="erreur-voiture" class="form-error" role="alert" hidden></p>
+
+        <div class="dates-section">
+          <h2>Votre période de location</h2>
+          <div class="dates">
+            <div class="date1">
+              <label for="date-debut">Date de début *</label>
+              <input type="date" id="date-debut" name="date-debut" required>
+            </div>
+            <div class="date2">
+              <label for="date-fin">Date de fin *</label>
+              <input type="date" id="date-fin" name="date-fin" required>
+            </div>
+          </div>
+          <p id="erreur-dates" class="form-error" role="alert" hidden></p>
+
+          <div id="nb-duration" class="nb-duration info-banner" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="btns-re-suiv">
+          <button type="reset" class="btn-recommencer">Recommencer</button>
+          <button type="submit" class="btn-suivant">Suivant</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Carte récapitulative -->
+    <aside class="recap" aria-labelledby="recap-titre">
+      <p class="recap-eyebrow" id="recap-titre">VOTRE LOCATION</p>
+      <h2 id="recap-voiture" class="recap-voiture">—</h2>
+      <p id="recap-detail" class="recap-detail"></p>
+
+      <hr class="recap-sep">
+
+      <p id="recap-periode" class="recap-periode"></p>
+      <p id="recap-duree" class="recap-duree"></p>
+
+      <dl class="recap-lignes">
+        <div class="recap-ligne">
+          <dt id="recap-vehicule-label">Véhicule</dt>
+          <dd id="recap-vehicule-montant">—</dd>
+        </div>
+        <div class="recap-ligne">
+          <dt>Récupération</dt>
+          <dd id="recap-recuperation">Gratuite</dd>
+        </div>
+      </dl>
+
+      <hr class="recap-sep">
+
+      <div class="recap-total">
+        <span class="recap-total-label">Total estimé</span>
+        <span id="recap-total" class="recap-total-montant">—</span>
+      </div>
+      <p class="recap-note">Frais de récupération facturés une seule fois.</p>
+      <p class="recap-info">Une demande, sans paiement en ligne.</p>
+    </aside>
+    </div>
+  </main>
+</body>
+</html>
